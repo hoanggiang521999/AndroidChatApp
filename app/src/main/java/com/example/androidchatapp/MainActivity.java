@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.androidchatapp.Fragments.ChatsFragment;
+import com.example.androidchatapp.Fragments.ProfileFragment;
 import com.example.androidchatapp.Fragments.UsersFragment;
 import com.example.androidchatapp.giangth.User;
 import com.google.android.material.tabs.TabLayout;
@@ -29,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -65,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 if(user.getImageURL().equals("default")) {
                     userImage.setImageResource(R.mipmap.ic_launcher);
                 } else {
-                    Glide.with(MainActivity.this).load(user.getImageURL()).into(userImage);
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(userImage);
                 }
+
             }
 
             @Override
@@ -81,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new ChatsFragment(), "Tin nhắn");
-        viewPagerAdapter.addFragment(new UsersFragment(), "Người dùng");
+        viewPagerAdapter.addFragment(new UsersFragment(), "Mọi người");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Người dùng");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -98,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, StartActivity.class));
-                finish();
+                startActivity(new Intent(getApplicationContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
         }
         return false;
@@ -137,5 +140,26 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return titles.get(position);
         }
+    }
+
+    private void status(String status) {
+        dbReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+
+        dbReference.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        status("offline");
     }
 }

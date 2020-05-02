@@ -4,11 +4,15 @@ public class User {
     private String username;
     private String id;
     private String imageURL;
+    private String status;
+    private String search;
 
-    public User(String userName, String id, String urlImage) {
+    public User(String userName, String id, String urlImage, String status, String search) {
         this.username = userName;
         this.id = id;
         this.imageURL = urlImage;
+        this.status = status;
+        this.search = search;
     }
 
     public User() {
@@ -36,5 +40,21 @@ public class User {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
