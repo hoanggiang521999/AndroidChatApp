@@ -112,35 +112,36 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         lastMessages = "default";
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference("Chats");
-
-        dbReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Chat chat = snapshot.getValue(Chat.class);
-                    if(chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userId) ||
-                            chat.getReceiver().equals(userId) && chat.getSender().equals(firebaseUser.getUid())) {
-                        lastMessages = chat.getMessage();
+        if(firebaseUser != null) {
+            dbReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Chat chat = snapshot.getValue(Chat.class);
+                        if(chat.getReceiver().equals(firebaseUser.getUid()) && chat.getSender().equals(userId) ||
+                                chat.getReceiver().equals(userId) && chat.getSender().equals(firebaseUser.getUid())) {
+                            lastMessages = chat.getMessage();
+                        }
                     }
+
+                    switch (lastMessages) {
+                        case "default":
+                            lastMessage.setText("No message");
+                            break;
+                        default:
+                            lastMessage.setText(lastMessages);
+                            break;
+                    }
+
+                    lastMessages = "default";
                 }
 
-                switch (lastMessages) {
-                    case "default":
-                        lastMessage.setText("No message");
-                        break;
-                    default:
-                        lastMessage.setText(lastMessages);
-                        break;
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
                 }
-
-                lastMessages = "default";
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+            });
+        }
     }
 
 }
