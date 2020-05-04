@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#242936"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
@@ -33,7 +34,9 @@
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
-            android:hint="Email"/>
+            android:hint="Email"
+            app:met_textColor="#242936"
+            />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
@@ -42,27 +45,28 @@
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
             app:met_floatingLabel="normal"
-            android:hint="Password"/>
+            android:hint="Password"
+            app:met_textColor="#242936"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Đăng nhập"
             android:id="@+id/btnLogin"
-            android:background="@color/colorPrimaryDark"
             android:layout_marginTop="10dp"
-            android:textColor="#ffffff"/>
+            android:background="@drawable/round_bg_dark"
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/forgot_password"
             android:text="Quên mật khẩu"
-            android:textColor="@color/colorPrimaryDark"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:layout_gravity="end"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#242936"/>
 
     </LinearLayout>
 </RelativeLayout>

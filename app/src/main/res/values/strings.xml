@@ -9,5 +9,7 @@
     <string name="or">Hoặc</string>
     <string name="login_with_facebook">Đăng nhập bằng facebook</string>
     <string name="not_have_account">Bạn chưa có tài khoản?</string>
-    <string name="btn_register">Đăng ký</string>
+    <string name="btn_register">Bạn chưa có tài khoản? Đăng ký</string>
+    <string name="facebook_app_id">3282220548484264</string>
+    <string name="fb_login_protocol_scheme">fb3282220548484264</string>
 </resources>

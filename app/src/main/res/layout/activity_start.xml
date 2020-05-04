@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/background_gradient"
     tools:context=".StartActivity">
 
     <ImageView
@@ -73,8 +73,8 @@
         android:drawableStart="@drawable/ic_google_logo"
         android:drawableLeft="@drawable/ic_google_logo"/>
 
-    <Button
-        android:id="@+id/login_with_facebook"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_with_google"
@@ -82,34 +82,19 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:text="@string/login_with_facebook"
-        android:background="@drawable/round_bg"
         android:drawableStart="@drawable/ic_facebook_logo"
         android:drawableLeft="@drawable/ic_facebook_logo"
         android:paddingLeft="5dp"/>
 
     <TextView
-        android:layout_width="196dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="59dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="26dp"
-        android:text="@string/not_have_account"
-        android:textColor="@android:color/white" />
-
-    <TextView
         android:id="@id/btnRegister"
-        android:layout_width="79dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="212dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="26dp"
         android:text="@string/btn_register"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

@@ -23,7 +23,8 @@
         android:layout_toEndOf="@+id/profile_image"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:textColor="#242936"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15dp"
@@ -61,7 +62,7 @@
         android:layout_marginTop="5dp"
         android:paddingTop="5dp"
         android:id="@+id/last_msg"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#6B6B6B"
         android:layout_marginLeft="11dp"
         android:maxLines="1"/>
 

@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hồ sơ"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textColor="#242936"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
@@ -36,7 +36,7 @@
                 android:layout_below="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="#242936"
                 android:textStyle="bold"
                 android:id="@+id/username"
                 android:textSize="18dp"/>

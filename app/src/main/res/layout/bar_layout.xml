@@ -4,8 +4,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
-    android:background="@color/colorPrimaryDark"
+    android:background="#242936"
     app:popupTheme="@style/MenuStyle"
-    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+    app:titleTextColor="@color/colorWhite"
+    app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
 
 </androidx.appcompat.widget.Toolbar>
