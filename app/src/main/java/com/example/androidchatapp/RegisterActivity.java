@@ -101,10 +101,21 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
+                                FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+                                mUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(RegisterActivity.this, "Chúng tôi đã gửi một Email xác thực đến bạn. Hãy kiểm tra hòm thư.", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(RegisterActivity.this, "Gửi email xác thực không thành công", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
                             }
                         }
                     });

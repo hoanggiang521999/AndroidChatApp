@@ -17,7 +17,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hồ sơ"
+                android:text="@string/profile"
                 android:textStyle="bold"
                 android:textColor="#242936"/>
 
@@ -39,7 +39,8 @@
                 android:textColor="#242936"
                 android:textStyle="bold"
                 android:id="@+id/username"
-                android:textSize="18dp"/>
+                android:textSize="18sp"/>
+
         </RelativeLayout>
         
     </androidx.cardview.widget.CardView>

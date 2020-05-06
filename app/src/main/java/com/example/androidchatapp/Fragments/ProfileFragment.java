@@ -14,11 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.androidchatapp.R;
+import com.example.androidchatapp.StartActivity;
 import com.example.androidchatapp.giangth.User;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,7 +48,6 @@ public class ProfileFragment extends Fragment {
 
     private CircleImageView imageProfile;
     private TextView username;
-
     private DatabaseReference dbReference;
     private FirebaseUser firebaseUser;
 

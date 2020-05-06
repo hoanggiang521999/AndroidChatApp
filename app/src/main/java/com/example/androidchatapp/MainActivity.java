@@ -83,12 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        viewPagerAdapter.addFragment(new ChatsFragment(), "Tin nhắn");
-        viewPagerAdapter.addFragment(new UsersFragment(), "Mọi người");
-        viewPagerAdapter.addFragment(new ProfileFragment(), "Người dùng");
+        viewPagerAdapter.addFragment(new ChatsFragment(), "");
+        viewPagerAdapter.addFragment(new UsersFragment(), "");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_message);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_community);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_profile);
     }
 
     @Override
@@ -103,6 +106,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                return true;
+            case R.id.covid:
+                startActivity(new Intent(getApplicationContext(), CovidActivity.class));
                 return true;
         }
         return false;

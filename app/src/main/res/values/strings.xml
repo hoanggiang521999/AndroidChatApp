@@ -12,4 +12,10 @@
     <string name="btn_register">Bạn chưa có tài khoản? Đăng ký</string>
     <string name="facebook_app_id">3282220548484264</string>
     <string name="fb_login_protocol_scheme">fb3282220548484264</string>
+    <string name="covid_19">Theo dõi tình hình dịch COVID-19</string>
+    <string name="login">Đăng nhập</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Quên mật khẩu</string>
+    <string name="profile">Hồ sơ người dùng</string>
 </resources>

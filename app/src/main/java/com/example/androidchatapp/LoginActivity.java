@@ -71,10 +71,14 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
+                                if(firebaseAuth.getCurrentUser().isEmailVerified()) {
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Bạn chưa xác thực Email. Hãy kiểm tra lại hòm thư của mình", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
                                 Toast.makeText(LoginActivity.this, "Lỗi xác thực tài khoản", Toast.LENGTH_SHORT).show();
                             }
